@@ -4,16 +4,20 @@ import axios from 'axios'
 class App extends Component {
   state = {
             value: '',
-            movies: []
+            movies: [],
           }
-  onChange = event => this.setState({ value: event.target.value })
+  
+  onChange = event => {
+    this.setState({ value: event.target.value });
+    console.log(event.target.value);
+  }
 
   componentDidMount() {
     axios
       .get('https://api.themoviedb.org/3/movie/top_rated?api_key=59017ce86d5101576f32f47160168519')
-      .then(res => this.setState({ movies: res.data.results }))
-      .catch(err => console.log(err))
-  }
+      .then(response => this.setState({ movies: response.data.results }))
+      .catch(error => console.log(error))
+    }
 
   render() {
     return (
