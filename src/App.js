@@ -8,16 +8,14 @@ class App extends Component {
           }
   
   onChange = event => {
-    this.setState({ value: event.target.value });
+    this.setState({ value: event.target.value }, () =>
+      axios
+        .get(`https://api.themoviedb.org/3/search/movie?api_key=59017ce86d5101576f32f47160168519&query=${this.state.value}`)
+        .then(response => this.setState({ movies: response.data.results }))
+        .catch(error => console.log(error))
+      );
     console.log(event.target.value);
   }
-
-  componentDidMount() {
-    axios
-      .get('https://api.themoviedb.org/3/movie/top_rated?api_key=59017ce86d5101576f32f47160168519')
-      .then(response => this.setState({ movies: response.data.results }))
-      .catch(error => console.log(error))
-    }
 
   render() {
     return (
