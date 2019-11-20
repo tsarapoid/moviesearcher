@@ -1,6 +1,6 @@
 {
   "name": "moviesearcher",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "license": "MIT",
   "homepage": "https://tsarapoid.github.io/moviesearcher",
   "repository": {
@@ -8,6 +8,7 @@
     "url": "https://github.com/tsarapoid/moviesearcher.git"
   },
   "dependencies": {
+    "@material-ui/core": "^4.6.1",
     "axios": "^0.18.1",
     "gh-pages": "^2.1.1",
     "react": "^16.12.0",
